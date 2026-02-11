@@ -1,0 +1,138 @@
+/* LOGIN PAGE */
+.container {
+  position: absolute;
+  width: 500px;
+  top: 1rem;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  aspect-ratio: 1.5;
+  border-radius: 25px;
+  border: 12px solid #4A628A;
+  background-color: #7AB2D3;
+}
+
+/* BACKGROUND */
+@property --g10-x {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0;
+}
+
+@property --g10-y {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0;
+}
+
+@property --g10-a {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+html {
+  --s: 80px;
+  /* the size */
+  --g: 8px;
+  /* the gap */
+  background: #DFF2EB;
+}
+
+html:before,
+html:after {
+  content: "";
+  position: fixed;
+  z-index: -1;
+  inset: 0;
+  background: repeating-conic-gradient(#0000 0 25%, var(--c, #B9E5E8) 0 50%) var(--p, 0) 0/calc(2*var(--s)) calc(2*var(--s));
+  -webkit-mask:
+    conic-gradient(from var(--g10-a) at var(--g10-x) var(--g10-y), #000 90deg, #0000 0),
+    conic-gradient(from 90deg at var(--g) var(--g), #000 90deg, #0000 0) var(--p, 0) 0;
+  -webkit-mask-size: var(--s) var(--s);
+  -webkit-mask-composite: destination-in;
+  mask-composite: intersect;
+  animation: g10 8s infinite;
+}
+
+html:after {
+  --p: var(--s);
+  --c: #7AB2D3;
+  animation-delay: -4s;
+}
+
+@keyframes g10 {
+  0% {
+    --g10-x: var(--s);
+    --g10-y: var(--g);
+    --g10-a: -180deg
+  }
+
+  12.5% {
+    --g10-x: var(--s);
+    --g10-y: var(--g);
+    --g10-a: -135deg
+  }
+
+  25% {
+    --g10-x: var(--s);
+    --g10-y: var(--s);
+    --g10-a: -90deg
+  }
+
+  37.5% {
+    --g10-x: var(--s);
+    --g10-y: var(--s);
+    --g10-a: -45deg
+  }
+
+  50% {
+    --g10-x: var(--g);
+    --g10-y: var(--s);
+    --g10-a: 0deg
+  }
+
+  62.5% {
+    --g10-x: var(--g);
+    --g10-y: var(--s);
+    --g10-a: 45deg
+  }
+
+  75% {
+    --g10-x: var(--g);
+    --g10-y: var(--g);
+    --g10-a: 90deg
+  }
+
+  87.5% {
+    --g10-x: var(--g);
+    --g10-y: var(--g);
+    --g10-a: 135deg
+  }
+
+  100% {
+    --g10-x: var(--s);
+    --g10-y: var(--g);
+    --g10-a: 180deg
+  }
+}
+
+* {
+  color: white;
+}
+
+input[type=submit],
+input[type=text],
+input[type=password] {
+  color: black;
+}
+
+h1,
+h2 {
+  margin: 5px;
+}
+
+h1 {
+  margin-top: 3rem;
+}
